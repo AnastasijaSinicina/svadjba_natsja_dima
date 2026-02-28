@@ -6,166 +6,193 @@
   <title>Настя & Дима — Свадьба 14.06.2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== ШАПКА (Header) ===== -->
-  <header class="hero">
-    <div class="hero__inner fade-in">
-      <p class="hero__prelude">Мы женимся!</p>
-      <h1 class="hero__names">Настя <span class="amp">&amp;</span> Дима</h1>
-      <div class="hero__divider">✦ ✦ ✦</div>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content fade-in">
+      <div class="hero__line"></div>
+      <p class="hero__pre">ПРИГЛАШЕНИЕ НА СВАДЬБУ</p>
+      <h1 class="hero__names">Настя <span class="amp">&</span> Дима</h1>
       <p class="hero__date">14 · 06 · 2026</p>
-      <p class="hero__venue-hint">Лиепая</p>
+      <p class="hero__city">Лиепая</p>
+      <div class="hero__line"></div>
+      <a href="#countdown" class="hero__scroll">
+        <span></span>
+      </a>
     </div>
-  </header>
+  </section>
 
-  <!-- ===== ОБРАТНЫЙ ОТСЧЁТ (Countdown) ===== -->
-  <section class="countdown" id="countdown">
+  <!-- ===== INTRO TEXT ===== -->
+  <section class="intro" id="intro">
     <div class="container fade-in">
-      <h2 class="section-title">До нашего дня</h2>
-      <div class="section-divider">✦</div>
+      <div class="gold-line"></div>
+      <p class="intro__label">ДОРОГИЕ ГОСТИ</p>
+      <h2 class="intro__heading">Мы приглашаем вас разделить с нами радость нашего особенного дня</h2>
+      <p class="intro__text">
+        С огромной радостью сообщаем, что мы решили стать одной семьёй.
+        Будем счастливы видеть вас на нашем торжестве!
+      </p>
+      <div class="gold-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== COUNTDOWN ===== -->
+  <section class="countdown" id="countdown">
+    <div class="countdown__overlay"></div>
+    <div class="container fade-in">
+      <p class="countdown__label">ДО НАШЕГО ДНЯ ОСТАЛОСЬ</p>
       <div class="countdown__timer">
         <div class="countdown__block">
           <span class="countdown__number" id="cd-days">000</span>
-          <span class="countdown__label">дней</span>
+          <span class="countdown__unit">дней</span>
         </div>
         <div class="countdown__sep">:</div>
         <div class="countdown__block">
           <span class="countdown__number" id="cd-hours">00</span>
-          <span class="countdown__label">часов</span>
+          <span class="countdown__unit">часов</span>
         </div>
         <div class="countdown__sep">:</div>
         <div class="countdown__block">
           <span class="countdown__number" id="cd-minutes">00</span>
-          <span class="countdown__label">минут</span>
+          <span class="countdown__unit">минут</span>
         </div>
         <div class="countdown__sep">:</div>
         <div class="countdown__block">
           <span class="countdown__number" id="cd-seconds">00</span>
-          <span class="countdown__label">секунд</span>
+          <span class="countdown__unit">секунд</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== О НАС (Couple profiles) ===== -->
+  <!-- ===== COUPLE ===== -->
   <section class="couple" id="couple">
     <div class="container">
-      <h2 class="section-title">О нас</h2>
-      <div class="section-divider">❤</div>
+      <div class="gold-line fade-in"></div>
+      <p class="section-pre fade-in">О НАС</p>
       <div class="couple__grid">
-        <div class="couple__person fade-in">
-          <div class="couple__photo-placeholder">Н</div>
+        <div class="couple__card fade-in">
+          <div class="couple__photo" style="background-image: url('https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400')"></div>
           <h3 class="couple__name">Настя</h3>
-          <p class="couple__text">
+          <p class="couple__role">НЕВЕСТА</p>
+          <p class="couple__desc">
             Мечтательница и романтик. Любит путешествия, книги и уютные вечера
-            с чашкой чая. Верит, что настоящая любовь — это когда рядом с человеком
-            чувствуешь себя дома.
+            с чашкой чая.
           </p>
         </div>
-        <div class="couple__heart fade-in">❤</div>
-        <div class="couple__person fade-in">
-          <div class="couple__photo-placeholder">Д</div>
+        <div class="couple__heart fade-in">&#10084;</div>
+        <div class="couple__card fade-in">
+          <div class="couple__photo" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400')"></div>
           <h3 class="couple__name">Дима</h3>
-          <p class="couple__text">
+          <p class="couple__role">ЖЕНИХ</p>
+          <p class="couple__desc">
             Надёжный и заботливый. Увлекается спортом, технологиями и готовкой.
-            Знает, что счастье — это не пункт назначения, а человек, с которым
-            идёшь по жизни.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== НАША ИСТОРИЯ (Love story timeline) ===== -->
+  <!-- ===== STORY ===== -->
   <section class="story" id="story">
+    <div class="story__overlay"></div>
     <div class="container">
-      <h2 class="section-title fade-in">Наша история</h2>
-      <div class="section-divider fade-in">✦</div>
+      <div class="gold-line gold-line--light fade-in"></div>
+      <p class="section-pre section-pre--light fade-in">НАША ИСТОРИЯ</p>
+      <h2 class="section-title section-title--light fade-in">Как всё начиналось</h2>
       <div class="timeline">
         <div class="timeline__item fade-in">
-          <div class="timeline__year">2020</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Первая встреча</h3>
-            <p>Мы встретились случайно, но с первого взгляда поняли — это судьба. Тот самый вечер изменил всё.</p>
+            <span class="timeline__year">2020</span>
+            <h4>Первая встреча</h4>
+            <p>Мы встретились случайно, но с первого взгляда поняли — это судьба.</p>
           </div>
         </div>
         <div class="timeline__item fade-in">
-          <div class="timeline__year">2021</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Первое путешествие</h3>
-            <p>Наша первая совместная поездка показала, что вместе нам хорошо не только дома, но и в приключениях.</p>
+            <span class="timeline__year">2021</span>
+            <h4>Первое путешествие</h4>
+            <p>Наша первая совместная поездка показала, что вместе нам хорошо везде.</p>
           </div>
         </div>
         <div class="timeline__item fade-in">
-          <div class="timeline__year">2023</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Переезд вместе</h3>
-            <p>Мы решили жить вместе и поняли, что дом — это не стены, а человек рядом.</p>
+            <span class="timeline__year">2023</span>
+            <h4>Переезд вместе</h4>
+            <p>Мы решили жить вместе и поняли, что дом — это человек рядом.</p>
           </div>
         </div>
         <div class="timeline__item fade-in">
-          <div class="timeline__year">2025</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Предложение</h3>
-            <p>Дима сделал предложение, и Настя сказала «Да!» — так началась подготовка к самому важному дню.</p>
+            <span class="timeline__year">2025</span>
+            <h4>Предложение</h4>
+            <p>Дима сделал предложение, и Настя сказала «Да!»</p>
           </div>
         </div>
         <div class="timeline__item fade-in">
-          <div class="timeline__year">2026</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Свадьба ✩</h3>
-            <p>14 июня мы скажем друг другу «Да» перед нашими самыми близкими людьми.</p>
+            <span class="timeline__year">2026</span>
+            <h4>Свадьба</h4>
+            <p>14 июня мы скажем друг другу «Да» перед самыми близкими.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== МЕСТО ПРОВЕДЕНИЯ (Venue) ===== -->
+  <!-- ===== PHOTO BANNER ===== -->
+  <section class="photo-banner">
+    <div class="photo-banner__img" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1400')"></div>
+  </section>
+
+  <!-- ===== VENUE ===== -->
   <section class="venue" id="venue">
-    <div class="container fade-in">
-      <h2 class="section-title">Место проведения</h2>
-      <div class="section-divider">✦</div>
+    <div class="container">
+      <div class="gold-line fade-in"></div>
+      <p class="section-pre fade-in">МЕСТО ПРОВЕДЕНИЯ</p>
+      <h2 class="section-title fade-in">Где и когда</h2>
       <div class="venue__grid">
         <div class="venue__card fade-in">
-          <div class="venue__icon">💍</div>
+          <div class="venue__icon">&#9825;</div>
           <h3>Церемония</h3>
+          <p class="venue__time">15:00</p>
           <p class="venue__place">Название площадки</p>
           <p class="venue__address">ул. Примерная, д. 1, Лиепая</p>
-          <p class="venue__time">15:00</p>
         </div>
         <div class="venue__card fade-in">
-          <div class="venue__icon">🥂</div>
+          <div class="venue__icon">&#9836;</div>
           <h3>Коктейль</h3>
+          <p class="venue__time">16:30</p>
           <p class="venue__place">Терраса</p>
           <p class="venue__address">На территории площадки</p>
-          <p class="venue__time">16:30</p>
         </div>
         <div class="venue__card fade-in">
-          <div class="venue__icon">🎉</div>
+          <div class="venue__icon">&#10025;</div>
           <h3>Банкет</h3>
+          <p class="venue__time">18:00</p>
           <p class="venue__place">Банкетный зал</p>
           <p class="venue__address">На территории площадки</p>
-          <p class="venue__time">18:00</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== РАСПИСАНИЕ ДНЯ (Day schedule) ===== -->
+  <!-- ===== SCHEDULE ===== -->
   <section class="schedule" id="schedule">
+    <div class="schedule__overlay"></div>
     <div class="container fade-in">
-      <h2 class="section-title">Расписание дня</h2>
-      <div class="section-divider">❤</div>
+      <p class="section-pre section-pre--light">ПРОГРАММА ДНЯ</p>
+      <h2 class="section-title section-title--light">Расписание</h2>
       <div class="schedule__list">
         <div class="schedule__item fade-in">
           <span class="schedule__time">14:30</span>
@@ -185,7 +212,7 @@
         <div class="schedule__item fade-in">
           <span class="schedule__time">16:30</span>
           <span class="schedule__dot"></span>
-          <span class="schedule__event">Коктейль на террасе ♬</span>
+          <span class="schedule__event">Коктейль на террасе</span>
         </div>
         <div class="schedule__item fade-in">
           <span class="schedule__time">18:00</span>
@@ -200,7 +227,7 @@
         <div class="schedule__item fade-in">
           <span class="schedule__time">21:00</span>
           <span class="schedule__dot"></span>
-          <span class="schedule__event">Вечерняя программа и танцы ♬</span>
+          <span class="schedule__event">Вечерняя программа и танцы</span>
         </div>
         <div class="schedule__item fade-in">
           <span class="schedule__time">23:00</span>
@@ -211,73 +238,68 @@
     </div>
   </section>
 
-  <!-- ===== ГАЛЕРЕЯ (Gallery) ===== -->
+  <!-- ===== GALLERY ===== -->
   <section class="gallery" id="gallery">
-    <div class="container fade-in">
-      <h2 class="section-title">Галерея</h2>
-      <div class="section-divider">✦</div>
-      <div class="gallery__grid fade-in">
-        <div class="gallery__item gallery__item--tall" style="background-image: url('https://images.unsplash.com/photo-1519741347686-c1e331bef1c8?w=600')"></div>
-        <div class="gallery__item" style="background-image: url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600')"></div>
-        <div class="gallery__item" style="background-image: url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600')"></div>
-        <div class="gallery__item gallery__item--wide" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800')"></div>
-        <div class="gallery__item" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600')"></div>
-        <div class="gallery__item gallery__item--tall" style="background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600')"></div>
-      </div>
+    <div class="container">
+      <div class="gold-line fade-in"></div>
+      <p class="section-pre fade-in">МОМЕНТЫ</p>
+      <h2 class="section-title fade-in">Галерея</h2>
+    </div>
+    <div class="gallery__grid fade-in">
+      <div class="gallery__item gallery__item--tall" style="background-image: url('https://images.unsplash.com/photo-1519741347686-c1e331bef1c8?w=600')"></div>
+      <div class="gallery__item" style="background-image: url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600')"></div>
+      <div class="gallery__item" style="background-image: url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600')"></div>
+      <div class="gallery__item gallery__item--wide" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800')"></div>
+      <div class="gallery__item" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600')"></div>
+      <div class="gallery__item gallery__item--tall" style="background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600')"></div>
     </div>
   </section>
 
-  <!-- ===== ДРЕСС-КОД (Dress code) ===== -->
+  <!-- ===== DRESSCODE ===== -->
   <section class="dresscode" id="dresscode">
+    <div class="dresscode__overlay"></div>
     <div class="container fade-in">
-      <h2 class="section-title">Дресс-код</h2>
-      <div class="section-divider">✦</div>
-      <p class="dresscode__intro">
-        Мы будем рады, если вы поддержите цветовую палитру нашего праздника.
-        Ниже — цвета, которые будут гармонично смотреться на фотографиях.
-      </p>
+      <p class="section-pre section-pre--light">ОБРАТИТЕ ВНИМАНИЕ</p>
+      <h2 class="section-title section-title--light">Дресс-код</h2>
+      <p class="dresscode__text">Мы будем рады, если вы поддержите цветовую палитру нашего праздника</p>
       <div class="dresscode__palette">
-        <div class="dresscode__color" style="background-color: #d4b896;" title="Шампань">
+        <div class="dresscode__color" style="background-color: #f5ede0;">
           <span>Шампань</span>
         </div>
-        <div class="dresscode__color" style="background-color: #e8c4b8;" title="Румянец">
-          <span>Румянец</span>
+        <div class="dresscode__color" style="background-color: #d4b896;">
+          <span>Песочный</span>
         </div>
-        <div class="dresscode__color" style="background-color: #c9a96e;" title="Золото">
+        <div class="dresscode__color" style="background-color: #c8a97e;">
           <span>Золото</span>
         </div>
-        <div class="dresscode__color" style="background-color: #b8a99a;" title="Тауп">
+        <div class="dresscode__color" style="background-color: #8c7355;">
           <span>Тауп</span>
         </div>
-        <div class="dresscode__color" style="background-color: #f5f0e8;" title="Слоновая кость">
-          <span>Слоновая кость</span>
+        <div class="dresscode__color" style="background-color: #4a3728;">
+          <span>Кофейный</span>
         </div>
       </div>
-      <p class="dresscode__note">
-        Пожалуйста, воздержитесь от чисто белого и чёрного цвета в одежде.
-      </p>
+      <p class="dresscode__note">Пожалуйста, воздержитесь от чисто белого и чёрного цвета в одежде</p>
     </div>
   </section>
 
-  <!-- ===== ПОДВАЛ (Footer) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer" id="footer">
     <div class="container fade-in">
-      <div class="footer__divider">✦ ✦ ✦</div>
       <h2 class="footer__names">Настя & Дима</h2>
-      <p class="footer__date">14 июня 2026</p>
-      <p class="footer__thanks">Спасибо, что разделите этот день с нами ❤</p>
+      <p class="footer__date">14 · 06 · 2026 · Лиепая</p>
+      <p class="footer__note">Ждём вас на нашем празднике</p>
+      <div class="footer__ornament">&#10022; &#10022; &#10022;</div>
     </div>
   </footer>
 
-  <!-- ===== Countdown Timer Script ===== -->
+  <!-- ===== Scripts ===== -->
   <script>
+    // Countdown
     (function () {
       const weddingDate = new Date('2026-06-14T15:00:00+03:00');
-
-      function updateCountdown() {
-        const now = new Date();
-        const diff = weddingDate - now;
-
+      function update() {
+        const diff = weddingDate - new Date();
         if (diff <= 0) {
           document.getElementById('cd-days').textContent = '0';
           document.getElementById('cd-hours').textContent = '00';
@@ -285,34 +307,24 @@
           document.getElementById('cd-seconds').textContent = '00';
           return;
         }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById('cd-days').textContent = days;
-        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+        document.getElementById('cd-days').textContent = Math.floor(diff / 864e5);
+        document.getElementById('cd-hours').textContent = String(Math.floor((diff / 36e5) % 24)).padStart(2, '0');
+        document.getElementById('cd-minutes').textContent = String(Math.floor((diff / 6e4) % 60)).padStart(2, '0');
+        document.getElementById('cd-seconds').textContent = String(Math.floor((diff / 1e3) % 60)).padStart(2, '0');
       }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+      update();
+      setInterval(update, 1000);
     })();
 
-    // ===== Scroll Fade-In =====
+    // Scroll fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 80);
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
