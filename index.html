@@ -21,9 +21,18 @@
       <p class="hero__date">14 · 06 · 2026</p>
       <p class="hero__city">Лиепая</p>
       <div class="hero__line"></div>
-      <a href="#countdown" class="hero__scroll">
-        <span></span>
-      </a>
+
+      <!-- Slide to unlock -->
+      <div class="swipe" id="swipe">
+        <div class="swipe__track">
+          <div class="swipe__knob" id="swipe-knob">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <span class="swipe__text">листайте</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -295,37 +304,113 @@
 
   <!-- ===== Scripts ===== -->
   <script>
-    // Countdown
+    // === Countdown ===
     (function () {
-      const weddingDate = new Date('2026-06-14T15:00:00+03:00');
-      function update() {
-        const diff = weddingDate - new Date();
-        if (diff <= 0) {
-          document.getElementById('cd-days').textContent = '0';
-          document.getElementById('cd-hours').textContent = '00';
-          document.getElementById('cd-minutes').textContent = '00';
-          document.getElementById('cd-seconds').textContent = '00';
-          return;
-        }
-        document.getElementById('cd-days').textContent = Math.floor(diff / 864e5);
-        document.getElementById('cd-hours').textContent = String(Math.floor((diff / 36e5) % 24)).padStart(2, '0');
-        document.getElementById('cd-minutes').textContent = String(Math.floor((diff / 6e4) % 60)).padStart(2, '0');
-        document.getElementById('cd-seconds').textContent = String(Math.floor((diff / 1e3) % 60)).padStart(2, '0');
+      const wd = new Date('2026-06-14T15:00:00+03:00');
+      function tick() {
+        const d = wd - new Date();
+        if (d <= 0) { ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+        document.getElementById('cd-days').textContent = Math.floor(d / 864e5);
+        document.getElementById('cd-hours').textContent = String(Math.floor((d / 36e5) % 24)).padStart(2, '0');
+        document.getElementById('cd-minutes').textContent = String(Math.floor((d / 6e4) % 60)).padStart(2, '0');
+        document.getElementById('cd-seconds').textContent = String(Math.floor((d / 1e3) % 60)).padStart(2, '0');
       }
-      update();
-      setInterval(update, 1000);
+      tick(); setInterval(tick, 1000);
     })();
 
-    // Scroll fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
+    // === Scroll fade-in ===
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          obs.unobserve(e.target);
         }
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // === Slide to unlock ===
+    (function () {
+      const swipe = document.getElementById('swipe');
+      const knob = document.getElementById('swipe-knob');
+      const track = knob.parentElement;
+      let dragging = false;
+      let startX = 0;
+      let knobX = 0;
+      let maxX = 0;
+      let done = false;
+
+      function getMax() {
+        return track.offsetWidth - knob.offsetWidth - 8; // 4px padding each side
+      }
+
+      function onStart(e) {
+        if (done) return;
+        dragging = true;
+        startX = (e.touches ? e.touches[0].clientX : e.clientX) - knobX;
+        knob.style.transition = 'none';
+        maxX = getMax();
+      }
+
+      function onMove(e) {
+        if (!dragging || done) return;
+        e.preventDefault();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        let x = clientX - startX;
+        x = Math.max(0, Math.min(x, maxX));
+        knobX = x;
+        knob.style.left = (4 + x) + 'px';
+
+        // fade out text as knob moves
+        const progress = x / maxX;
+        track.querySelector('.swipe__text').style.opacity = 1 - progress;
+      }
+
+      function onEnd() {
+        if (!dragging || done) return;
+        dragging = false;
+        knob.style.transition = 'left 0.35s ease';
+
+        const progress = knobX / maxX;
+
+        if (progress > 0.7) {
+          // Unlock!
+          done = true;
+          knob.style.left = (4 + maxX) + 'px';
+          swipe.classList.add('swipe--done');
+
+          setTimeout(function () {
+            document.getElementById('hero').classList.add('hero--unlocked');
+            setTimeout(function () {
+              document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
+              // restore hero after scroll so user can scroll back
+              setTimeout(function () {
+                document.getElementById('hero').classList.remove('hero--unlocked');
+                document.getElementById('hero').style.display = 'none';
+              }, 900);
+            }, 500);
+          }, 300);
+        } else {
+          // Snap back
+          knobX = 0;
+          knob.style.left = '4px';
+          track.querySelector('.swipe__text').style.opacity = '';
+        }
+      }
+
+      // Touch events
+      knob.addEventListener('touchstart', onStart, { passive: true });
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onEnd);
+
+      // Mouse events
+      knob.addEventListener('mousedown', onStart);
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onEnd);
+
+      // Recalc on resize
+      window.addEventListener('resize', function () { maxX = getMax(); });
+    })();
   </script>
 
 </body>
