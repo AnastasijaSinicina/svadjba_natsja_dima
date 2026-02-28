@@ -62,24 +62,36 @@ body {
 }
 .section-title--light { color: #fff; }
 
-/* ===== HERO ===== */
-.hero {
-  position: relative;
+/* ===== BODY LOCKED (before unlock) ===== */
+body.locked {
+  overflow: hidden;
   height: 100svh;
-  min-height: 500px;
-  background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600') center/cover no-repeat;
+}
+
+/* ===== LOCKSCREEN ===== */
+.lockscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.hero__overlay {
+.lockscreen__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 100%);
+  background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600') center/cover no-repeat;
 }
 
-.hero__content {
+.lockscreen__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.lockscreen__content {
   position: relative;
   z-index: 1;
   text-align: center;
@@ -89,14 +101,14 @@ body {
   max-width: 900px;
 }
 
-.hero__line {
+.lockscreen__line {
   width: 120px;
   height: 1px;
   background: #a89161;
   margin: 0 auto 24px;
 }
 
-.hero__pre {
+.lockscreen__pre {
   font-size: 0.65rem;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -104,7 +116,7 @@ body {
   margin-bottom: 24px;
 }
 
-.hero__names {
+.lockscreen__names {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 9vw, 6.5rem);
   font-weight: 400;
@@ -114,25 +126,105 @@ body {
   overflow-wrap: break-word;
 }
 
-.amp {
-  font-style: italic;
-  color: #e8d5b5;
-}
-
-.hero__date {
+.lockscreen__date {
   font-size: 0.85rem;
   letter-spacing: 6px;
   color: #e8d5b5;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
-.hero__city {
+.lockscreen--out {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.page--visible {
+  opacity: 1;
+}
+
+/* ===== COVER (first page after unlock) ===== */
+.cover {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0b08;
+  overflow: hidden;
+}
+
+.cover__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(168,145,97,0.08) 0%, transparent 70%);
+}
+
+.cover__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 24px;
+  color: #fff;
+}
+
+.cover__photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: center/cover no-repeat;
+  margin: 0 auto 32px;
+  border: 3px solid rgba(168,145,97,0.4);
+  box-shadow: 0 0 40px rgba(168,145,97,0.2), 0 0 80px rgba(0,0,0,0.3);
+}
+
+.cover__line {
+  width: 100px;
+  height: 1px;
+  background: #a89161;
+  margin: 0 auto 24px;
+}
+
+.cover__names {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 9vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.cover__label {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a89161;
+  margin-bottom: 20px;
+}
+
+.cover__date {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #e8d5b5;
+  margin-bottom: 6px;
+}
+
+.cover__city {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
   font-style: italic;
-  color: rgba(232, 213, 181, 0.6);
+  color: rgba(232,213,181,0.5);
   letter-spacing: 3px;
-  margin-bottom: 24px;
+}
+
+.amp {
+  font-style: italic;
+  color: #e8d5b5;
 }
 
 /* --- Slide to unlock --- */
@@ -221,15 +313,6 @@ body {
   transition: opacity 0.3s ease;
 }
 
-/* Hero unlocked state */
-.hero--unlocked {
-  animation: heroFadeOut 0.8s ease forwards;
-}
-
-@keyframes heroFadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; pointer-events: none; }
-}
 
 /* ===== INTRO ===== */
 .intro {
@@ -746,20 +829,13 @@ body {
     margin-bottom: 32px;
   }
 
-  /* Hero */
-  .hero {
-    min-height: 100svh;
-  }
-  .hero__content {
+  /* Lockscreen */
+  .lockscreen__content {
     padding: 0 20px;
   }
-  .hero__pre {
+  .lockscreen__pre {
     font-size: 0.6rem;
     letter-spacing: 3px;
-    margin-bottom: 18px;
-  }
-  .hero__date {
-    letter-spacing: 4px;
   }
   .swipe__track {
     width: 220px;
@@ -768,6 +844,15 @@ body {
   .swipe__knob {
     width: 40px;
     height: 40px;
+  }
+
+  /* Cover */
+  .cover__photo {
+    width: 180px;
+    height: 180px;
+  }
+  .cover__content {
+    padding: 50px 20px;
   }
 
   /* Intro */
@@ -937,31 +1022,23 @@ body {
     margin-bottom: 28px;
   }
 
-  /* Hero */
-  .hero {
-    min-height: 100svh;
-  }
-  .hero__line {
+  /* Lockscreen */
+  .lockscreen__line {
     width: 80px;
     margin-bottom: 18px;
   }
-  .hero__pre {
+  .lockscreen__pre {
     font-size: 0.55rem;
     letter-spacing: 3px;
     margin-bottom: 14px;
   }
-  .hero__names {
-    font-size: clamp(2.4rem, 13vw, 3.5rem);
+  .lockscreen__names {
+    font-size: clamp(1.8rem, 10vw, 3rem);
     margin-bottom: 18px;
   }
-  .hero__date {
+  .lockscreen__date {
     font-size: 0.75rem;
     letter-spacing: 4px;
-  }
-  .hero__city {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
   }
   .swipe {
     margin-top: 24px;
@@ -981,6 +1058,30 @@ body {
   .swipe__text {
     font-size: 0.6rem;
     letter-spacing: 3px;
+  }
+
+  /* Cover */
+  .cover__photo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 24px;
+  }
+  .cover__content {
+    padding: 40px 16px;
+  }
+  .cover__names {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+  .cover__label {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+  }
+  .cover__date {
+    font-size: 1.2rem;
+  }
+  .cover__line {
+    width: 70px;
+    margin-bottom: 18px;
   }
 
   /* Intro */
@@ -1199,8 +1300,11 @@ body {
 
 /* ===== VERY SMALL PHONES (max 360px) ===== */
 @media (max-width: 360px) {
-  .hero__names {
-    font-size: 2.2rem;
+  .lockscreen__names {
+    font-size: 1.8rem;
+  }
+  .cover__names {
+    font-size: 1.8rem;
   }
 
   .countdown__block {
