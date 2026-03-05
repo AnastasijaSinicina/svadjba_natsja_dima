@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Настя & Дима — Свадьба 14.06.2026</title>
+  <title>Настя & Дима — Свадьба 18.07.2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="locked">
@@ -14,23 +14,22 @@
   <!-- ===== LOCK SCREEN ===== -->
   <div class="lockscreen" id="lockscreen">
     <div class="lockscreen__bg"></div>
-    <div class="lockscreen__overlay"></div>
-    <div class="lockscreen__content fade-in">
-      <div class="lockscreen__line"></div>
+    <div class="lockscreen__content">
+      <div class="lockscreen__ornament">&#10053;</div>
       <p class="lockscreen__pre">ПРИГЛАШЕНИЕ НА СВАДЬБУ</p>
-      <h1 class="lockscreen__names">Настя <span class="amp">&</span> Дима</h1>
-      <p class="lockscreen__date">14 · 06 · 2026</p>
+      <h1 class="lockscreen__names">Настя <span class="amp">&amp;</span> Дима</h1>
+      <p class="lockscreen__date">18 · 07 · 2026</p>
       <div class="lockscreen__line"></div>
 
       <!-- Slide to unlock -->
       <div class="swipe" id="swipe">
         <div class="swipe__track">
           <div class="swipe__knob" id="swipe-knob">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </div>
-          <span class="swipe__text">листайте</span>
+          <span class="swipe__text">СВАЙП ДЛЯ РАЗБЛОКИРОВКИ</span>
         </div>
       </div>
     </div>
@@ -39,30 +38,39 @@
   <!-- ===== PAGE CONTENT (hidden until unlock) ===== -->
   <div class="page" id="page">
 
-  <!-- ===== COVER — first page after unlock ===== -->
-  <section class="cover" id="cover" style="background-image: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1600')">
-    <div class="cover__overlay"></div>
-    <div class="cover__content">
-      <div class="cover__line"></div>
-      <h1 class="cover__names">Настя <span class="amp">&</span> Дима</h1>
-      <p class="cover__label">ПРИГЛАШАЮТ ВАС НА СВАДЬБУ</p>
-      <p class="cover__date">14 июня 2026</p>
-      <p class="cover__city">Лиепая</p>
-      <div class="cover__line"></div>
+  <!-- ===== HERO — full viewport with card overlay ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" style="background-image: url('images/photo_2026-03-05_17-32-00.jpg')"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__card">
+      <div class="hero__line"></div>
+      <p class="hero__label">ПРИГЛАШАЮТ ВАС НА СВАДЬБУ</p>
+      <h1 class="hero__names">Настя <span class="amp">&amp;</span> Дима</h1>
+      <p class="hero__date">18 июля 2026</p>
+      <p class="hero__city">Liepāja</p>
+      <div class="hero__line"></div>
     </div>
   </section>
 
   <!-- ===== INTRO TEXT ===== -->
   <section class="intro" id="intro">
     <div class="container fade-in">
-      <div class="gold-line"></div>
+      <div class="ornament-line">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
       <p class="intro__label">ДОРОГИЕ ГОСТИ</p>
-      <h2 class="intro__heading">Мы приглашаем вас разделить с нами радость нашего особенного дня</h2>
+      <h2 class="intro__heading">Однажды дружеское «Привет» превратилось в главное «Да» нашей жизни</h2>
       <p class="intro__text">
-        С огромной радостью сообщаем, что мы решили стать одной семьёй.
-        Будем счастливы видеть вас на нашем торжестве!
+        Будем рады видеть вас на торжественной церемонии бракосочетания.<br>
+        Раздели с нами этот день, подари свое тепло и поддержку.
       </p>
-      <div class="gold-line"></div>
+      <div class="ornament-line">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
     </div>
   </section>
 
@@ -98,7 +106,11 @@
   <!-- ===== COUPLE ===== -->
   <section class="couple" id="couple">
     <div class="container">
-      <div class="gold-line fade-in"></div>
+      <div class="ornament-line fade-in">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
       <p class="section-pre fade-in">О НАС</p>
       <div class="couple__grid">
         <div class="couple__card fade-in">
@@ -127,7 +139,11 @@
   <section class="story" id="story">
     <div class="story__overlay"></div>
     <div class="container">
-      <div class="gold-line gold-line--light fade-in"></div>
+      <div class="ornament-line ornament-line--light fade-in">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
       <p class="section-pre section-pre--light fade-in">НАША ИСТОРИЯ</p>
       <h2 class="section-title section-title--light fade-in">Как всё начиналось</h2>
       <div class="timeline">
@@ -168,7 +184,7 @@
           <div class="timeline__content">
             <span class="timeline__year">2026</span>
             <h4>Свадьба</h4>
-            <p>14 июня мы скажем друг другу «Да» перед самыми близкими.</p>
+            <p>18 июля мы скажем друг другу «Да» перед самыми близкими.</p>
           </div>
         </div>
       </div>
@@ -183,90 +199,56 @@
   <!-- ===== VENUE ===== -->
   <section class="venue" id="venue">
     <div class="container">
-      <div class="gold-line fade-in"></div>
+      <div class="ornament-line fade-in">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
       <p class="section-pre fade-in">МЕСТО ПРОВЕДЕНИЯ</p>
       <h2 class="section-title fade-in">Где и когда</h2>
       <div class="venue__grid">
         <div class="venue__card fade-in">
           <div class="venue__icon">&#9825;</div>
-          <h3>Церемония</h3>
-          <p class="venue__time">15:00</p>
-          <p class="venue__place">Название площадки</p>
-          <p class="venue__address">ул. Примерная, д. 1, Лиепая</p>
+          <h3>Сбор гостей</h3>
+          <p class="venue__time">14:00</p>
+          <p class="venue__place">Lielā iela 1A</p>
+          <p class="venue__address">Liepāja, LV-3401</p>
         </div>
         <div class="venue__card fade-in">
-          <div class="venue__icon">&#9836;</div>
-          <h3>Коктейль</h3>
-          <p class="venue__time">16:30</p>
-          <p class="venue__place">Терраса</p>
-          <p class="venue__address">На территории площадки</p>
+          <div class="venue__icon">&#9901;</div>
+          <h3>Загс</h3>
+          <p class="venue__time">14:30</p>
+          <p class="venue__place">Lielā iela 1A</p>
+          <p class="venue__address">Liepāja, LV-3401</p>
         </div>
         <div class="venue__card fade-in">
-          <div class="venue__icon">&#10025;</div>
+          <div class="venue__icon">&#127864;</div>
           <h3>Банкет</h3>
-          <p class="venue__time">18:00</p>
-          <p class="venue__place">Банкетный зал</p>
-          <p class="venue__address">На территории площадки</p>
+          <p class="venue__time">17:00</p>
+          <p class="venue__place">Amrita hotel</p>
+          <p class="venue__address">ул. Rīgas 7/9, Liepāja</p>
+        </div>
+        <div class="venue__card fade-in">
+          <div class="venue__icon">&#127856;</div>
+          <h3>Торжественный торт</h3>
+          <p class="venue__time">22:00</p>
+          <p class="venue__place">Amrita hotel</p>
+          <p class="venue__address">ул. Rīgas 7/9, Liepāja</p>
         </div>
       </div>
+      <a class="venue__btn fade-in" href="https://maps.google.com/?q=Rigas+iela+7/9,+Liepaja" target="_blank" rel="noopener">СМОТРЕТЬ АДРЕС НА КАРТЕ</a>
     </div>
   </section>
 
-  <!-- ===== SCHEDULE ===== -->
-  <section class="schedule" id="schedule">
-    <div class="schedule__overlay"></div>
-    <div class="container fade-in">
-      <p class="section-pre section-pre--light">ПРОГРАММА ДНЯ</p>
-      <h2 class="section-title section-title--light">Расписание</h2>
-      <div class="schedule__list">
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">14:30</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Сбор гостей</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">15:00</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Церемония бракосочетания</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">16:00</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Поздравления и фотосессия</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">16:30</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Коктейль на террасе</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">18:00</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Банкет и первый танец</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">20:00</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Торт и десерты</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">21:00</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Вечерняя программа и танцы</span>
-        </div>
-        <div class="schedule__item fade-in">
-          <span class="schedule__time">23:00</span>
-          <span class="schedule__dot"></span>
-          <span class="schedule__event">Завершение вечера</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== GALLERY ===== -->
   <section class="gallery" id="gallery">
     <div class="container">
-      <div class="gold-line fade-in"></div>
+      <div class="ornament-line fade-in">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
       <p class="section-pre fade-in">МОМЕНТЫ</p>
       <h2 class="section-title fade-in">Галерея</h2>
     </div>
@@ -282,29 +264,33 @@
 
   <!-- ===== DRESSCODE ===== -->
   <section class="dresscode" id="dresscode">
-    <div class="dresscode__overlay"></div>
     <div class="container fade-in">
-      <p class="section-pre section-pre--light">ОБРАТИТЕ ВНИМАНИЕ</p>
-      <h2 class="section-title section-title--light">Дресс-код</h2>
-      <p class="dresscode__text">Мы будем рады, если вы поддержите цветовую палитру нашего праздника</p>
+      <div class="ornament-line">
+        <span class="ornament-line__left"></span>
+        <span class="ornament-line__icon">&#10053;</span>
+        <span class="ornament-line__right"></span>
+      </div>
+      <p class="section-pre">ОБРАТИТЕ ВНИМАНИЕ</p>
+      <h2 class="section-title">Дресс-код</h2>
+      <p class="dresscode__text">Нам будет особенно приятно видеть вас в нарядах цветовой гаммы нашей свадьбы</p>
       <div class="dresscode__palette">
-        <div class="dresscode__color" style="background-color: #f5ede0;">
-          <span>Шампань</span>
+        <div class="dresscode__color" style="background-color: #8a9a7b;">
+          <span>Шалфей</span>
         </div>
-        <div class="dresscode__color" style="background-color: #d4b896;">
-          <span>Песочный</span>
+        <div class="dresscode__color" style="background-color: #c8c4a0;">
+          <span>Олива</span>
         </div>
-        <div class="dresscode__color" style="background-color: #c8a97e;">
-          <span>Золото</span>
+        <div class="dresscode__color" style="background-color: #5b7a72;">
+          <span>Изумруд</span>
         </div>
-        <div class="dresscode__color" style="background-color: #8c7355;">
-          <span>Тауп</span>
+        <div class="dresscode__color" style="background-color: #b0c4d0;">
+          <span>Голубой</span>
         </div>
-        <div class="dresscode__color" style="background-color: #4a3728;">
-          <span>Кофейный</span>
+        <div class="dresscode__color" style="background-color: #e8e4d4;">
+          <span>Кремовый</span>
         </div>
       </div>
-      <p class="dresscode__note">Пожалуйста, воздержитесь от чисто белого и чёрного цвета в одежде</p>
+      <p class="dresscode__note">Просим подтвердить свое присутствие до 20.06.2026</p>
     </div>
   </section>
 
@@ -312,9 +298,9 @@
   <footer class="footer" id="footer">
     <div class="container fade-in">
       <h2 class="footer__names">Настя & Дима</h2>
-      <p class="footer__date">14 · 06 · 2026 · Лиепая</p>
+      <p class="footer__date">18 · 07 · 2026 · Liepāja</p>
       <p class="footer__note">Ждём вас на нашем празднике</p>
-      <div class="footer__ornament">&#10022; &#10022; &#10022;</div>
+      <div class="footer__ornament">&#10053; &#10053; &#10053;</div>
     </div>
   </footer>
 
@@ -324,7 +310,7 @@
   <script>
     // === Countdown ===
     (function () {
-      const wd = new Date('2026-06-14T15:00:00+03:00');
+      const wd = new Date('2026-07-18T14:00:00+03:00');
       function tick() {
         const d = wd - new Date();
         if (d <= 0) { ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id => document.getElementById(id).textContent = '00'); return; }
@@ -388,11 +374,9 @@
         knob.style.left = (4 + maxX) + 'px';
         swipe.classList.add('swipe--done');
 
-        // Fade out lockscreen
         setTimeout(function () {
           lockscreen.classList.add('lockscreen--out');
 
-          // After fade completes, remove lockscreen & enable scroll
           setTimeout(function () {
             lockscreen.style.display = 'none';
             document.body.classList.remove('locked');
@@ -416,12 +400,10 @@
         }
       }
 
-      // Touch
       knob.addEventListener('touchstart', onStart, { passive: true });
       document.addEventListener('touchmove', onMove, { passive: false });
       document.addEventListener('touchend', onEnd);
 
-      // Mouse
       knob.addEventListener('mousedown', onStart);
       document.addEventListener('mousemove', onMove);
       document.addEventListener('mouseup', onEnd);
